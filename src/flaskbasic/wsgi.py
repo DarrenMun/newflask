@@ -3,12 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
 
+# Schema of the project or table, it  is how the data is structured
 class Student(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(50), nullable= False)
   physics = db.Column(db.Integer)
   maths = db.Column(db.Integer)
   chemistry = db.Column(db.Integer)
+
+# Route that first renders the page when the page loads, get route that gets the data from the database,
+# post route that sends data to the database
 
 @application.route('/', methods=['GET','POST'])
 def add_results():
@@ -21,11 +25,15 @@ def add_results():
     else:
       return render_template('home.html', form=form)
 
+
+# get route that gets all the data from the database and renders a template with results
+
 @application.route('/results', methods=['GET','POST'])
 def get_results():
   data = Student.query.all()
   return render_template('results.html', data = data)
 
+# PUT route updates the existing data in the database
 @application.route('/results/<int:indexId>', methods=['PUT'])
 def update_results(indexId):
   
@@ -41,6 +49,8 @@ def update_results(indexId):
   db.session.commit()
   
   return jsonify({'student':'Pass'})
+
+# Delete route deletes an existing data in the database 
 
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
