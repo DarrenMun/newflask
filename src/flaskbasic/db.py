@@ -5,7 +5,7 @@ import os
 
 db.create_all()
 
-# Data to initialize database with
+# Data to initialize database with/Dummy data
 Data = [
 	{'name'		: 'Darren'	,'physics': 1, 'maths': 1, 'chemistry':1},
 	{'name'		: 'Kent'	,'physics': 1, 'maths': 1, 'chemistry':1},
