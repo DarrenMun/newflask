@@ -11,9 +11,6 @@ install:
   - pip install -q Flask==$FLASK
   - pip install -q -r requirements.txt
   - pip install -q -e .
-
-virtualenv:
-  system_site_packages: true
-
+  
 script:
   - python setup.py test
