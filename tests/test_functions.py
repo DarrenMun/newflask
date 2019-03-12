@@ -1,26 +1,32 @@
-<<<<<<< HEAD
-# from flask_sqlalchemy import SQLAlchemy
-=======
 from flask_sqlalchemy import SQLAlchemy
->>>>>>> 2efc853f569b31bed390d3159bb9fb07d4dc6549
 # from flaskbasic.wsgi import *
-from src.flaskbasic.functions import functions
+from src.flaskbasic.functions import Functions
 import pytest
 
-fun = functions
+fun = Functions
 
 def test_student_name():
-<<<<<<< HEAD
     assert fun.readName('Lwando',1) == 'Lwando'
+    assert fun.readName('Zukisa',2) == 'Zukisa'
+    assert fun.readName('ludwe',3) == 'ludwe'
+
+def delete(student_id):
+            student_results = Student.query.get_or_404(student_id)
+            db.session.delete(student_results)
+            db.session.commit() 
 
 def test_all_results():
-    assert fun.readResults(1, 'Lwando',10,60,10) == (1, 'Lwando', 10, 60, 10)
-=======
-    assert fun.readName('Lwando',6) == 'Lwando'
+    assert fun.readResults(1,'Lwando',10, 60, 10 ) == (1, 'Lwando', 10, 60, 10) 
+    assert fun.readResults(2,'Zukisa',10, 60, 5) == (2,'Zukisa',10, 60, 5)
+    assert fun.readResults(3,'ludwe',32, 12, 22) == (3,'ludwe',32, 12, 22)
 
-def test_all_results():
-    assert fun.readResults(6, 'Lwando',50,60,90) == (6, 'Lwando', 50, 60, 90)
->>>>>>> 2efc853f569b31bed390d3159bb9fb07d4dc6549
+
+
+
+# def test_all_results():
+#     assert fun.readResults(1, 'Lwando',10,60,10) == (1, 'Lwando', 10, 60, 10)
+#     assert fun.readResults(2, 'Zukisa',10,60,5) == (2, 'Zukisa',10,60,5)
+    # assert fun.readResults(1, 'Zikia',10,60,10) == (1, 'Lwando', 10, 60, 10)
 
     
     
