@@ -1,13 +1,18 @@
 # .coveragerc to control coverage.py
 [run]
 branch = True
-source = flaskbasic
-omit = __init__.py, logger.py , skeleton.py
+show_missing = True
+source = src
+         */flaskbasic
+include = */functions.py
+omit =  */flaskbasic/__init__.py
+        */flaskbasic/logger.py
+        */flakbasic/skeleton.py
 
 [paths]
 source =
     src/
-    */site-packages/
+    */flaskbasic/
 
 [report]
 # Regexes for lines to exclude from consideration
@@ -26,3 +31,6 @@ exclude_lines =
     # Don't complain if non-runnable code isn't run:
     if 0:
     if __name__ == .__main__.:
+
+[html]
+directory = coverage_html_report
