@@ -2,11 +2,14 @@ from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic.models import Student
 from src.flaskbasic.form import StudentForm
 from src.flaskbasic.wsgi import db
+
 from src.flaskbasic.wsgi import Student
+
+# from src.flaskbasic.wsgi import Student
 
 import os
 
-class functions():
+class Functions():
 
       def putData():
             form = StudentForm()
@@ -30,6 +33,7 @@ class functions():
                   return student_name.id,student_name.name,student_name.physics,student_name.maths,student_name.chemistry
 
 
+
       # def updates(student_id):
       #       student_data = Student.query.get_or_404(student_id)
       #       form = StudentForm()
@@ -40,6 +44,7 @@ class functions():
       #       student_data.chemistry = form.chemistry.data
       #       db.session.commit()
 
+
       def updates(student_id):
             student_data = Student.query.get_or_404(student_id)
             form = StudentForm()
@@ -49,6 +54,7 @@ class functions():
             student_data.maths = form.maths.data
             student_data.chemistry = form.chemistry.data
             db.session.commit()
+
 
             
       def delete(student_id):
