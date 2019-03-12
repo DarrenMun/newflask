@@ -1,15 +1,15 @@
 
 language: python
 python:
-  - 2.7
   - 3.7.2
   - 3.5
 env:
-  - FLASK=1.0.2
-  - FLASK=0.10.1
+  - pipenv
+  # - FLASK=1.0.2
+  # - FLASK=0.10.1
 install:
-  - pip install -q Flask==$FLASK
-  - pip install -q -r requirements.txt
-  - pip install -q -e .
+  - pipenv install
+  - pipenv install flask
+
 script:
   - python setup.py test

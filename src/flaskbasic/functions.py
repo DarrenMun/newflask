@@ -5,7 +5,7 @@ from src.flaskbasic.wsgi import db
 # from src.flaskbasic.wsgi import Student
 import os
 
-class functions():
+class Functions():
 
       def putData():
             form = StudentForm()
